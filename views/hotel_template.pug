@@ -1,0 +1,162 @@
+extends layout
+
+block content
+  // Modal
+  #modal-widget.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h3.modal-title.text-center Booking Widget
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          form.register-form(id='booking-form', method='POST', action='/hotel_template/:id')
+            input(type='hidden', name='_csrf', value=_csrf)
+            input( class='price', name= 'price', type='hidden', value='')
+            h2.widget-title Book Your Room
+            .form-group.col-md-4
+              label.register-label(for='checkIn')
+                i.fa.fa-calendar(aria-hidden='true')
+                |  Check In
+              .input-group.date(data-provide='datepicker')
+                input#check-in.form-control.register-input(type='text', name='checkIn', placeholder='Check In')
+                .input-group-addon
+                  span.glyphicon.glyphicon-th
+            .form-group.col-md-4
+              label.register-label(for='checkOut')
+                i.fa.fa-calendar(aria-hidden='true')
+                |  Check Out
+              .input-group.date(data-provide='datepicker')
+                input#check-out.form-control.register-input(type='text', name='checkOut', placeholder='Check Out')
+                .input-group-addon
+                  span.glyphicon.glyphicon-th
+            .form-group.col-md-4
+              label.register-label(for='people')
+                i.fa.fa-user(aria-hidden='true')
+                |  People
+              select#people.register-input.form-control.people(name='people')
+                option(value='', disabled='', selected='') #
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3') 3
+                option(value='4') 4
+                option(value='5') 5+
+            button.grey-btn.register-btn(type='submit') Book Now!
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+  // hod
+  .background-image
+    .hod
+      .container
+        .col-md-6.hod-left
+          img.img-responsive('src'= hotel.src)
+        .col-md-6.hod-right
+          h2= hotel.name
+          p.available
+            | Available 
+            i.fa.fa-check-circle(aria-hidden='true')
+          h5.hotel-header
+            i.fa.fa-building(aria-hidden='true')
+            |   Hotel Features
+          
+          .info-box
+            p
+              i.fa.fa-wifi(aria-hidden='true')  
+                = hotel.hotelFeatures[0]
+            p
+              i.fa.fa-cutlery(aria-hidden='true')  
+                = hotel.hotelFeatures[1]
+            p
+              i.fa.fa-glass(aria-hidden='true')  
+                = hotel.hotelFeatures[2]
+            p
+              i.fa.fa-car(aria-hidden='true')  
+                = hotel.hotelFeatures[3]
+        .clearfix
+  // hod
+  hr
+  // tels
+  - for ( i=1; i <= 2 ; i++ )
+    .tels
+      .container
+        .row
+          .col-md-4.tels-left.vertical-divide
+            h4
+              | Single Rooms 
+              span.priceRoom $110
+            hr.horizontal-row
+            img.img-responsive.img-responsive1('src'= hotel.room[0], alt='')
+            .col-md-12
+              p
+                i.fa.fa-bed(aria-hidden='true')
+                |  Room Features
+              hr
+              ul.list-group.list-group-flush.text-center
+                li.list-group-item.no-border
+                  i.fa.fa-thermometer-full(aria-hidden='true')
+                  |  Central Heating
+                li.list-group-item.border-top
+                  i.fa.fa-hand-paper-o(aria-hidden='true')
+                  |  Spa and Message
+                li.list-group-item.border-top-bot
+                  i.fa.fa-wheelchair(aria-hidden='true')
+                  |  Handicap Friendly
+            .text-center
+              p.available Available
+              a(href='#', data-toggle='modal', data-target='#modal-widget')
+                | Book Now 
+                i.fa.fa-calendar(aria-hidden='true')
+          .col-md-4.tels-left.vertical-divide
+            h4
+              | Double Rooms 
+              span.priceRoom $150
+            hr.horizontal-row
+            img.img-responsive('src'= hotel.room[1], alt='')
+            .col-md-12
+              p
+                i.fa.fa-bed(aria-hidden='true')
+                |  Room Features
+              hr
+              ul.list-group.list-group-flush.text-center
+                li.list-group-item.no-border
+                  i.fa.fa-thermometer-full(aria-hidden='true')
+                  |  Central Heating
+                li.list-group-item.border-top
+                  i.fa.fa-hand-paper-o(aria-hidden='true')
+                  |  Spa and Message
+                li.list-group-item.border-top-bot
+                  i.fa.fa-wheelchair(aria-hidden='true')
+                  |  Handicap Friendly
+            .text-center
+              p.available Available
+              a(href='#', data-toggle='modal', data-target='#modal-widget')
+                | Book Now 
+                i.fa.fa-calendar(aria-hidden='true')
+          .col-md-4.tels-left
+            h4
+              | Private Rooms 
+              span.priceRoom $200
+            hr.horizontal-row
+            img.img-responsive.img-responsive1('src'= hotel.room[2], alt='')
+            .col-md-12
+              p
+                i.fa.fa-bed(aria-hidden='true')
+                |  Room Features
+              hr
+              ul.list-group.list-group-flush.text-center
+                li.list-group-item.no-border
+                  i.fa.fa-thermometer-full(aria-hidden='true')
+                  |  Central Heating
+                li.list-group-item.border-top
+                  i.fa.fa-hand-paper-o(aria-hidden='true')
+                  |  Spa and Message
+                li.list-group-item.border-top-bot
+                  i.fa.fa-wheelchair(aria-hidden='true')
+                  |  Handicap Friendly
+            .text-center
+              p.available Available
+              a(href='#', data-toggle='modal', data-target='#modal-widget')
+                | Book Now 
+                i.fa.fa-calendar(aria-hidden='true')
+  .clearfix
+    

@@ -1,25 +1,30 @@
 extends layout
 
 block content
-  .page-header
-    h3 Contact Form
+  .row
+    .col-md-6
+      .maps
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9702.591669653193!2d35.180081210868885!3d32.01372995532564!2m3!1f2.2500000000004667!2f0!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x151d29b83329f57b%3A0x5ea28bf85404aa72!2sRawabi!5e1!3m2!1sen!2sil!4v1511858654334" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    .col-md-6
+      .page-header
+        h3 Contact Form
 
-  form.form-horizontal(method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    .form-group
-      label(class='col-sm-2 control-label', for='name') Name
-      .col-sm-8
-        input.form-control(type='text', name='name', id='name', autofocus=true)
-    .form-group
-      label(class='col-sm-2 control-label', for='email') Email
-      .col-sm-8
-        input.form-control(type='text', name='email', id='email')
-    .form-group
-      label(class='col-sm-2 control-label', for='message') Body
-      .col-sm-8
-        textarea.form-control(name='message', id='message', rows='7')
-    .form-group
-      .col-sm-offset-2.col-sm-8
-        button.btn.btn-primary(type='submit')
-          i.fa.fa-envelope
-          | Send
+      form.form-horizontal(method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        .form-group
+          label(class='col-sm-2 control-label', for='name') Name
+          .col-sm-8
+            input.form-control(type='text', name='name', id='name', autofocus=true)
+        .form-group
+          label(class='col-sm-2 control-label', for='email') Email
+          .col-sm-8
+            input.form-control(type='text', name='email', id='email')
+        .form-group
+          label(class='col-sm-2 control-label', for='message') Body
+          .col-sm-8
+            textarea.form-control(name='message', id='message', rows='7')
+        .form-group
+          .col-sm-offset-2.col-sm-8
+            button.btn.btn-primary(type='submit')
+              i.fa.fa-envelope
+              | Send

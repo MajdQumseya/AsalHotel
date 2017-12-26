@@ -1,0 +1,50 @@
+[
+  {
+    "type": "deluxe",
+    "src": "images/room1.jpg"
+  },
+  {
+   "type": "deluxe",
+   "src": "images/room2.jpg"
+  },
+  {
+    "type": "deluxe",
+    "src": "images/room3.jpg"
+  },
+  {
+    "type": "elite",
+    "src": "images/room4.jpg"
+  },
+  {
+    "type": "elite",
+   "src": "images/room5.jpg"
+  },
+  {
+    "type": "elite",
+    "src": "images/room6.jpg"
+  },
+  {
+   "type": "supreme",
+   "src": "images/room7.jpg"
+  },
+  {
+    "type": "supreme",
+    "src": "images/room8.jpg"
+  },
+  {
+    "type": "supreme",
+    "src": "images/room9.jpg"
+  },
+  {
+   "type": "normal",
+   "src": "images/room10.jpg"
+  },
+  {
+    "type": "normal",
+    "src": "images/room11.jpg"
+  },
+  {
+    "type": "normal",
+    "src": "images/room12.jpg"
+  }
+]

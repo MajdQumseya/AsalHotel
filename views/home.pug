@@ -1,27 +1,67 @@
 extends layout
 
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
-  hr
   .row
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
+    .col-md-12.header-text
+      a.no-decoration(href='/')
+        img.logo-header(src='logo.png')
+        h3.banner-text
+          span.orange Premium
+          |  Hotels
+  section#hero1.hero
+    .inner
+      .hero-div.col-md-8
+        h2.landing-header  Room Availability Checker 
+        br
+        h1.landing-header and Booking
+      .col-md-4.landing-form
+        form.register-form(action='', name='registration')
+          h2.text-left Register
+          .form-group
+            label.register-label(for='name')
+            input#name.register-input.form-control(type='text', name='name', placeholder='Full Name')
+          .form-group
+            label.register-label(for='email')
+            input#email.register-input.form-control(type='email', name='email', placeholder='Email ')
+          .form-group
+            .input-group.date(data-provide='datepicker')
+              input#check-in.form-control.register-input(type='text', name='checkIn', placeholder='Check In')
+              .input-group-addon
+                span.glyphicon.glyphicon-th
+          .form-group
+            .input-group.date(data-provide='datepicker')
+              input#check-out.form-control.register-input(type='text', name='checkOut', placeholder='Check Out')
+              .input-group-addon
+                span.glyphicon.glyphicon-th
+          .form-group
+            label.register-label(for='adults')
+            select#adults.form-control.adults(name='adults')
+              option(value='', disabled='', selected='') Adults
+              option(value='1') 1
+              option(value='2') 2
+              option(value='3') 3
+              option(value='4') 4
+              option(value='5') 5+
+          .form-group
+            label.register-label(for='children')
+            select#children.form-control.children(name='children')
+              option(value='', disabled='', selected='') Children
+              option(value='1') 1
+              option(value='2') 2
+              option(value='3') 3
+              option(value='4') 4
+              option(value='5') 5+
+          button.grey-btn.register-btn(type='submit') Register now!
+      // form ends
+    // inner ends
+  .row.orange-background
+    .col-md-12
+      h2.landing-footer-h  Subscribe 
+      p.landing-footer-p
+        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam convallis efficitur pharetra. Nam ac magna tempus, efficitur leo vitae, molestie nisl.
+        br
+        |  Sed dui ante, mollis ut consectetur vel, vehicula eu nulla.
+      form
+        .container.email-container
+          input.footer-email.form-control(type='email', placeholder=' Enter your email ', name='mail', required='')
+          button.grey-btn.register-btn2(type='submit') Subscribe

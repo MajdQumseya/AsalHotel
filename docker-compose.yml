@@ -7,7 +7,7 @@ services:
     ports:
      - "3000:3000"
     environment:
-     - MONGODB_URI=mongodb://mongo:27017/test 
+     - MONGODB_URI=mongodb://majd:asal123@ds121716.mlab.com:21716/hotel-users
     links:
      - mongo 
     depends_on: 
@@ -16,3 +16,4 @@ services:
      - .:/starter
      - /starter/node_modules
      
+

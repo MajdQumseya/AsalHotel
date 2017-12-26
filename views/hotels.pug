@@ -1,0 +1,192 @@
+extends layout
+
+block content
+
+  // banner
+  .banner
+    // booking widget
+    .container
+      form.register-form.margin-top(action='', name='booking')
+        h2.widget-title Booking Widget
+        .form-group.col-md-3
+          label.register-label(for='name')
+            i.fa.fa-building-o(aria-hidden='true')
+            |  Hotel Name
+          input#name.register-input.form-control(type='text', name='name', placeholder='Name of Hotel')
+        .form-group.col-md-3
+          label.register-label(for='checkIn')
+            i.fa.fa-calendar(aria-hidden='true')
+            |  Check In
+          .input-group.date(data-provide='datepicker')
+            input#check-in.form-control.register-input(type='text', name='checkIn', placeholder='Check In')
+            .input-group-addon
+              span.glyphicon.glyphicon-th
+        .form-group.col-md-3
+          label.register-label(for='checkOut')
+            i.fa.fa-calendar(aria-hidden='true')
+            |  Check Out
+          .input-group.date(data-provide='datepicker')
+            input#check-out.form-control.register-input(type='text', name='checkOut', placeholder='Check Out')
+            .input-group-addon
+              span.glyphicon.glyphicon-th
+        .form-group.col-md-3
+          label.register-label(for='people')
+            i.fa.fa-user(aria-hidden='true')
+            |  People Travelling
+          select#people.register-input.form-control.people(name='people')
+            option(value='', disabled='', selected='') #
+            option(value='1') 1
+            option(value='2') 2
+            option(value='3') 3
+            option(value='4') 4
+            option(value='5') 5+
+        button.grey-btn.register-btn(type='submit') Find Rooms!
+  .tels
+    .container
+      - for ( i=1; i <= 3 ; i++ )
+        .col-md-4.tels-left.vertical-divide
+          h4
+            | Secluded Hotels 
+            span $110
+          img.img-responsive('src'= hotel[i].src, alt='')(data-id= hotel[Math.floor(Math.random() * 6) + 1 ].id )
+          .col-md-12
+            p
+              i.fa.fa-bed(aria-hidden='true')
+              |  Room Features
+            ul.list-group.list-group-flush.text-center
+              li.list-group-item.no-border
+                i.fa.fa-thermometer-full(aria-hidden='true')
+                = hotel[Math.floor(Math.random() * 6) + 1].hotelFeatures[Math.floor(Math.random() * 3) + 1]
+              li.list-group-item.border-top
+                i.fa.fa-hand-paper-o(aria-hidden='true')
+                = hotel[Math.floor(Math.random() * 6) + 1].hotelFeatures[Math.floor(Math.random() * 3) + 1]
+              li.list-group-item.border-top-bot
+                i.fa.fa-wheelchair(aria-hidden='true')
+                = hotel[Math.floor(Math.random() * 6) + 1].hotelFeatures[Math.floor(Math.random() * 3) + 1]
+          .text-center
+            p.available Available
+            a(href='/hotel_template/'+ hotel[i].id)
+              | Book Now 
+              i.fa.fa-calendar(aria-hidden='true')
+      .clearfix
+  // tels
+  // test
+  // <div class="sliders">
+  .row
+    #container
+      h4
+        | Single Rooms 
+        span 110$
+      hr
+        
+      .photobanner
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img.first(src='photobanner1.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner7.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner2.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner3.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner9.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner4.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner5.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner1.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner6.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner7.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner4.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner5.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner8.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner9.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner1.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner3.jpg')
+  .row
+    #container
+      h4
+        | Deluxe Rooms 
+        span 180$
+      hr
+      .photobanner
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img.first(src='photobanner1.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner7.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner2.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner3.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner9.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner4.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner5.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner1.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner6.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner7.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner4.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner5.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner8.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner9.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner1.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner3.jpg')
+  .row
+    #container
+      h4
+        | Supreme Rooms 
+        span 250$
+      hr
+      .photobanner
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img.first(src='photobanner1.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner7.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner2.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner3.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner9.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner4.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner5.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner1.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner6.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner7.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner4.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner5.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner8.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner9.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner1.jpg')
+        a(href='/hotel_template/' + hotel[Math.floor(Math.random() * 6) + 1].id)
+          img(src='photobanner3.jpg')

@@ -5,9 +5,12 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   password: String,
+  account: Number,
+  balance: Number,
+  booked: Array,
+  picture: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
-
   facebook: String,
   twitter: String,
   google: String,
@@ -22,7 +25,6 @@ const userSchema = new mongoose.Schema({
     gender: String,
     location: String,
     website: String,
-    picture: String
   }
 }, { timestamps: true });
 
@@ -41,6 +43,8 @@ userSchema.pre('save', function save(next) {
     });
   });
 });
+
+
 
 /**
  * Helper method for validating user's password.

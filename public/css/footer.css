@@ -1,0 +1,73 @@
+
+
+.contact-div {
+    margin-top: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+.no-decoration {
+    text-decoration: none !important;
+}
+.logo-footer {
+    position: absolute;
+    left: 41%;
+    height: 45px;
+    width: 60px;
+    bottom:  155px;
+}
+
+.banner-text {
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+}
+
+.orange {
+    color: #FFA500;
+}
+
+.contact-footer {
+    text-align: center;
+    margin: 15px auto;
+}
+
+.margin-bottom {
+    margin: 15px auto;
+}
+
+.social {
+    font-size: 2em;
+    margin-right: 15px;
+}
+
+/*.footer-background {
+    rgb(230,230,250);
+}*/
+
+@media only screen and (max-width: 1150px) {
+    .logo-footer {
+      z-index: -1;
+      position: inherit;
+    }
+    
+     .margin-bottom {
+        padding-bottom: 30px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

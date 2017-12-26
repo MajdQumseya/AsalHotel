@@ -1,0 +1,380 @@
+extends layout
+
+block content  
+  .container-fluid
+    .col-lg-12.col-sm-12
+      // top of card
+      .background-image
+      |         
+      .card.hovercard
+        .card-background
+        |             
+        .useravatar
+          img.profile-pic(alt='', src= user.picture || user.gravatar())
+        |             
+        .card-info
+          span.card-title.profile-name= user.profile.name || user.email
+          
+      // tabbed buttons
+      .btn-pref.btn-group.btn-group-justified.btn-group-lg(role='group', aria-label='...')
+        .btn-group(role='group')
+          button#stars.btn.btn-primary(type='button', href='#tab1', data-toggle='tab')
+            span.glyphicon.glyphicon-star(aria-hidden='true')
+            |                         
+            div Hotels Booked
+        |             
+        .btn-group(role='group')
+          button#favorites.btn.btn-default(type='button', href='#tab2', data-toggle='tab')
+            span.glyphicon.glyphicon-user(aria-hidden='true')
+            |                         
+            div User Information
+        |             
+        .btn-group(role='group')
+          button#following.btn.btn-default(type='button', href='#tab3', data-toggle='tab')
+            span.glyphicon.glyphicon-heart(aria-hidden='true')
+            |                         
+            div Favorites
+      // Modals
+      #modal-profile.modal.fade(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='modal-profile-label')
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(aria-hidden='true', type='button', data-dismiss='modal') &times;
+              |                         
+              h4#modal-profile-label.modal-title= hotel[Math.floor(Math.random() * 6) + 1].name
+            // modal body
+            .modal-body
+              #myCarousel.carousel.slide(data-ride='carousel')
+                // Indicators
+                ol.carousel-indicators
+                  li.active(data-target='#myCarousel', data-slide-to='0')
+                  |                                 
+                  li(data-target='#myCarousel', data-slide-to='1')
+                  |                                 
+                  li(data-target='#myCarousel', data-slide-to='2')
+                // Wrapper for slides
+                .carousel-inner
+                  .item.active
+                    img.modal-img(src= hotel[1].room[0])
+                  |                                 
+                  .item
+                    img.modal-img(src= hotel[2].room[2])
+                  |                                 
+                  .item
+                    img.modal-img(src= hotel[1].room[2])
+                // Left and right controls
+                a.left.carousel-control(href='#myCarousel', data-slide='prev')
+                  span.glyphicon.glyphicon-chevron-left
+                  |                                   
+                  span.sr-only Previous
+                |                             
+                a.right.carousel-control(href='#myCarousel', data-slide='next')
+                  span.glyphicon.glyphicon-chevron-right
+                  |                                   
+                  span.sr-only Next
+            |                     
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') Close
+          // modal-content end
+      // modal ends
+      i.fa.fa-circle-o-notch.fa-spin
+      // tabbed information
+      .well
+        .tab-content
+          // hotels booked
+          #tab1.tab-pane.fade.in.active
+            h3.text-center  Hotels Booked
+            |                     
+            hr
+            |                     
+            .row
+              .col-lg-4
+                #card1.card
+                  img.card-img-top(src='booked1.jpg', alt='Card image cap', width='100%', height='100%')
+                  |                                 
+                  .card-block
+                    h4.card-title.text-center= hotel[4].name
+                  |                                 
+                  ul.list-group.list-group-flush
+                    li.list-group-item
+                      strong Rating:
+                      |  4/5
+                    |                                     
+                    li.list-group-item
+                      strong Location:
+                      |  Prague, Italy
+                    |                                     
+                    li.list-group-item
+                      strong Room Type:
+                      |                                         
+                      hr
+                      |                                         
+                      ul.card-list
+                        li
+                          strong $289
+                          |  - Deluxe Single Bedroom
+                          |                                                 
+                          a(data-target='#modal-profile', data-toggle='modal')
+                            p.modal-viewer(data-room='deluxe')  View gallery
+                        |                                             
+                        li
+                          strong $389
+                          |  - Supreme Double Bedroom
+                          |                                                 
+                          a(data-target='#modal-profile', data-toggle='modal')
+                            p.modal-viewer(data-room='supreme')  View gallery
+                    |                                     
+                    li.list-group-item
+                      strong  Features: 
+                      |                                         
+                      ul.list-group.list-group-flush
+                        li.list-group-item
+                          i.fa.fa-thermometer-full(aria-hidden='true')
+                          |  Central Heating
+                        |                                             
+                        li.list-group-item
+                          i.fa.fa-hand-paper-o(aria-hidden='true')
+                          |  Spa and Message
+                        |                                             
+                        li.list-group-item
+                          i.fa.fa-wheelchair(aria-hidden='true')
+                          |  Handicap Friendly
+                  |                                 
+                  .text-center
+                    a.btn.btn-primary(href= '/hotel_template/4') Go to Hotel Page
+              |                         
+              .col-lg-4
+                #card2.card
+                  img.card-img-top(src='booked2.jpg', alt='Card image cap', width='100%', height='100%')
+                  |                                 
+                  .card-block
+                    h4.card-title.text-center= hotel[5].name
+                  |                                 
+                  ul.list-group.list-group-flush
+                    li.list-group-item
+                      strong Rating:
+                      |  3.2/5
+                    |                                     
+                    li.list-group-item
+                      strong Location:
+                      |  Amsterdam, Netherlands
+                    |                                     
+                    li.list-group-item
+                      strong Room Type:
+                      |                                         
+                      hr
+                      |                                         
+                      ul.card-list
+                        li
+                          strong $475
+                          |  - Supreme Single Bedroom
+                          |                                                 
+                          a(data-target='#modal-profile', data-toggle='modal')
+                            p.modal-viewer(data-room='supreme')  View gallery
+                        |                                             
+                        li
+                          strong $234
+                          | - Deluxe Triple Bedroom
+                          |                                                 
+                          a(data-target='#modal-profile', data-toggle='modal')
+                            p.modal-viewer(data-room='deluxe')  View gallery
+                        |                                             
+                        li
+                          strong $525
+                          |  - Elite Triple King Room
+                          |                                                 
+                          a(data-target='#modal-profile', data-toggle='modal')
+                            p.modal-viewer(data-room='elite')  View gallery
+                    |                                     
+                    li.list-group-item
+                      strong  Features: 
+                      |                                         
+                      ul.list-group.list-group-flush
+                        li.list-group-item
+                          i.fa.fa-bath(aria-hidden='true')
+                          |  Jacuzzi
+                        |                                             
+                        li.list-group-item
+                          i.fa.fa-cutlery(aria-hidden='true')
+                          |  Intercontinental Breakfast
+                        |                                             
+                        li.list-group-item
+                          i.fa.fa-child(aria-hidden='true')
+                          |  Kids Room
+                  |                                 
+                  .text-center
+                    a.btn.btn-primary(href='/hotel_template/5') Go to Hotel Page
+              |                         
+              .col-lg-4
+                #card3.card
+                  img.card-img-top(src='booked3.jpg', alt='Card image cap', width='100%', height='100%')
+                  |                                 
+                  .card-block
+                    h4.card-title.text-center= hotel[6].name
+                  |                                 
+                  ul.list-group.list-group-flush
+                    li.list-group-item
+                      strong Rating:
+                      |  4.8/5
+                    |                                     
+                    li.list-group-item
+                      strong Location:
+                      |  Amsterdam, Netherlands
+                    |                                     
+                    li.list-group-item
+                      strong Room Type:
+                      |                                         
+                      hr
+                      |                                         
+                      ul.card-list
+                        li
+                          strong $289
+                          |  - Double Normal Room
+                          |                                                 
+                          a(data-target='#modal-profile', data-toggle='modal')
+                            p.modal-viewer(data-room='normal')  View gallery
+                    |                                     
+                    li.list-group-item
+                      ul.list-group.list-group-flush
+                        strong  Features: 
+                        |                                             
+                        li.list-group-item
+                          i.fa.fa-gamepad(aria-hidden='true')
+                          |  Game Room
+                        |                                             
+                        li.list-group-item
+                          i.fa.fa-street-view(aria-hidden='true')
+                          |  3D Movies
+                        |                                             
+                        li.list-group-item
+                          i.fa.fa-wifi(aria-hidden='true')
+                          |  Wifi
+                  |                                 
+                  .text-center
+                    a.card-btn.btn.btn-primary(href='/hotel_template/6') Go to Hotel Page
+          // user information
+          #tab2.tab-pane.fade.in
+              form.form-horizontal(action='/account/profile', method='POST')
+                input(type='hidden', name='_csrf', value=_csrf)
+                .form-group
+                  label.col-sm-3.control-label(for='email') Email
+                  .col-sm-7
+                    input.form-control(type='email', name='email', id='email', value=user.email)
+                .form-group
+                  label.col-sm-3.control-label(for='name') Name
+                  .col-sm-7
+                    input.form-control(type='text', name='name', id='name', value=user.profile.name)
+                .form-group
+                  label.col-sm-3.control-label Gender
+                  .col-sm-6
+                    label.radio.col-sm-3
+                      input(type='radio', checked=user.profile.gender=='male', name='gender', value='male', data-toggle='radio')
+                      span Male
+                    label.radio.col-sm-3
+                      input(type='radio', checked=user.profile.gender=='female', name='gender', value='female', data-toggle='radio')
+                      span Female
+                    label.radio.col-sm-3
+                      input(type='radio', checked=user.profile.gender=='other', name='gender', value='other', data-toggle='radio')
+                      span Other
+                .form-group
+                  label.col-sm-3.control-label(for='location') Location
+                  .col-sm-7
+                    input.form-control(type='text', name='location', id='location', value=user.profile.location)
+                .form-group
+                  label.col-sm-3.control-label(for='website') Website
+                  .col-sm-7
+                    input.form-control(type='text', name='website', id='website', value=user.profile.website)
+                //- .form-group
+                //-   label.col-sm-3.control-label(for='picture') Picture
+                //-   .col-sm-7
+                //-     input.form-control(type='file', name='userPhoto', id='picture', value=user.profile.picture)
+                .form-group
+                  label.col-sm-3.control-label Gravatar
+                  .col-sm-4
+                    img(src=user.gravatar() || user.picture, class='profile', width='100', height='100')
+                .form-group
+                  .col-sm-offset-3.col-sm-4
+                    button.btn.btn.btn-primary(type='submit')
+                      i.fa.fa-pencil
+                      | Update Profile
+                      //- button.btn.btn-primary(type='submit')
+                        a(href='/api/upload') Upload Photo
+                    form(role='form', enctype='multipart/form-data', action="api/upload", method='POST')
+                      .form-group
+                        label.control-label File Input
+                        input(type='file', name='myFile')
+                      button.btn.btn-primary(type='submit') Submit    
+
+              .page-header
+                h3 Change Password
+
+              form.form-horizontal(action='/account/password', method='POST')
+                input(type='hidden', name='_csrf', value=_csrf)
+                .form-group
+                  label.col-sm-3.control-label(for='password') New Password
+                  .col-sm-7
+                    input.form-control(type='password', name='password', id='password')
+                .form-group
+                  label.col-sm-3.control-label(for='confirmPassword') Confirm Password
+                  .col-sm-7
+                    input.form-control(type='password', name='confirmPassword', id='confirmPassword')
+                .form-group
+                  .col-sm-offset-3.col-sm-4
+                    button.btn.btn-primary(type='submit')
+                      i.fa.fa-lock
+                      | Change Password
+
+              .page-header
+                h3 Delete Account
+
+              form.form-horizontal(action='/account/delete', method='POST')
+                .form-group
+                  p.col-sm-offset-3.col-sm-4 You can delete your account, but keep in mind this action is irreversible.
+                  input(type='hidden', name='_csrf', value=_csrf)
+                  .col-sm-offset-3.col-sm-4
+                    button.btn.btn-danger(type='submit')
+                      i.fa.fa-trash
+                      | Delete my account
+
+              .page-header
+                h3 Linked Accounts
+              .form-horizontal
+                .form-group
+                  .col-sm-offset-3.col-sm-4
+                    if user.instagram
+                      p: a.text-danger(href='/account/unlink/instagram') Unlink your Instagram account
+                    else
+                      p: a(href='/auth/instagram') Link your Instagram account
+                  .col-sm-offset-3.col-sm-4
+                    if user.google
+                      p: a.text-danger(href='/account/unlink/google') Unlink your Google account
+                    else
+                      p: a(href='/auth/google') Link your Google account
+                  .col-sm-offset-3.col-sm-4
+                    if user.facebook
+                      p: a.text-danger(href='/account/unlink/facebook') Unlink your Facebook account
+                    else
+                      p: a(href='/auth/facebook') Link your Facebook account
+                  .col-sm-offset-3.col-sm-4
+                    if user.twitter
+                      p: a.text-danger(href='/account/unlink/twitter') Unlink your Twitter account
+                    else
+                      p: a(href='/auth/twitter') Link your Twitter account
+                  .col-sm-offset-3.col-sm-4
+                    if user.github
+                      p: a.text-danger(href='/account/unlink/github') Unlink your GitHub account
+                    else
+                      p: a(href='/auth/github') Link your GitHub account
+                  .col-sm-offset-3.col-sm-4
+                    if user.linkedin
+                      p: a.text-danger(href='/account/unlink/linkedin') Unlink your LinkedIn account
+                    else
+                      p: a(href='/auth/linkedin') Link your LinkedIn account
+
+
+          
+          // favorites
+          #tab3.tab-pane.fade.in
+            h3.text-center Favorites
+            |                     
+            hr
